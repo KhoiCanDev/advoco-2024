@@ -1,0 +1,23 @@
+{
+  "name": "advoco-2024",
+  "version": "1.0.0",
+  "description": "Khoi adventure in Advent of Code 2024",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhoiCanDev/advoco-2024.git"
+  },
+  "author": "KhoiCanDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KhoiCanDev/advoco-2024/issues"
+  },
+  "homepage": "https://github.com/KhoiCanDev/advoco-2024#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
