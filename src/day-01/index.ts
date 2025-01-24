@@ -12,21 +12,33 @@ async function main() {
 
     const firstList: number[] = [];
     const secondList: number[] = [];
+    const secondListCountMap = new Map<number, number>();
 
     for await (const line of readLines) {
       const numbers = line.split("   ");
-      insertSorted(firstList, parseInt(numbers[0], 10));
-      insertSorted(secondList, parseInt(numbers[1], 10));
+      const firstNo = parseInt(numbers[0], 10);
+      const secondNo = parseInt(numbers[1], 10);
+      insertSorted(firstList, firstNo);
+      insertSorted(secondList, secondNo);
+      if (secondListCountMap.has(secondNo)) {
+        secondListCountMap.set(secondNo, secondListCountMap.get(secondNo) + 1);
+      } else {
+        secondListCountMap.set(secondNo, 1);
+      }
     }
 
-    let result = 0;
+    let distanceResult = 0;
+    let similarityResult = 0;
+
     for (let index = 0; index < firstList.length; index++) {
-      const fistNo = firstList[index];
+      const firstNo = firstList[index];
       const secondNo = secondList[index];
-      result += Math.abs(fistNo - secondNo);
+      distanceResult += Math.abs(firstNo - secondNo);
+      similarityResult += firstNo * (secondListCountMap.get(firstNo) ?? 0);
     }
 
-    console.log("total distance", result);
+    console.log("total distance", distanceResult);
+    console.log("similarity", similarityResult);
   } catch (err) {
     console.error(err);
   }
